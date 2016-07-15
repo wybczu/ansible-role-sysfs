@@ -16,6 +16,7 @@ addons:
     - python-pip
 
 install:
+  - ln -s $TRAVIS_BUILD_DIR ${TRAVIS_BUILD_DIR%/*}/sysfs
   # Install ansible and ansible-lint
   - pip install ansible ansible-lint
   # Check ansible version
