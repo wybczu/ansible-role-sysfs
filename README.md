@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/wybczu/ansible-role-sysfs.svg?branch=master)](https://travis-ci.org/wybczu/ansible-role-sysfs)
+
 sysfs
 =====
 
