@@ -7,7 +7,7 @@ sudo: false
 
 env:
   global:
-    - ANSIBLE_ROLES_PATH=$TRAVIS_BUILD_DIR
+    - ANSIBLE_ROLES_PATH=$TRAVIS_BUILD_DIR/../
 
 # Install ansible
 addons:
