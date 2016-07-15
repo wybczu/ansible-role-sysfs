@@ -5,6 +5,10 @@ python: "2.7"
 # Use the new container infrastructure
 sudo: false
 
+env:
+  global:
+    - ANSIBLE_ROLES_PATH=../
+
 # Install ansible
 addons:
   apt:
@@ -12,14 +16,11 @@ addons:
     - python-pip
 
 install:
-  # Install ansible
+  # Install ansible and ansible-lint
   - pip install ansible ansible-lint
-
   # Check ansible version
   - ansible --version
-
-  # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' > ansible.cfg
+  - ansible-lint --version
 
 script:
   # Basic role syntax check
