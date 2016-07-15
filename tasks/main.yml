@@ -1,0 +1,20 @@
+---
+
+- include: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+- include: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: validate action if provided
+  fail:
+    msg: Unkown action specified!
+  when: item.action is defined and item.action not in ['mode', 'owner']
+  with_items: "{{ sysfs_configuration.options }}"
+
+- name: create sysfs configuration file
+  template:
+    src: sysfs.d.conf.j2
+    dest: "/etc/sysfs.d/{{ __sysfs_config_filename }}"
+  notify:
+    - restart sysfsutils

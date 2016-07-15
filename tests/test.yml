@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  remote_user: root
+  vars:
+    sysfs_configuration:
+      name: set_sda_timeout
+      priority: 20
+      options:
+        - { attribute: 'block/sda/device/timeout', value: '60' }
+  roles:
+    - sysfs

@@ -1,0 +1,4 @@
+---
+
+__sysfs_config_filename: "{{ sysfs_configuration.priority | default(10) }}-{{ sysfs_configuration.name | replace(' ', '_') }}.conf"
+
